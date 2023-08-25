@@ -1,0 +1,15 @@
+For those who are seeing errors  following the last part of the video (around 42:00),  the base template  part href  = "{%  url  < insert some url here >  %}" , it is probably because of the Django version used in the video being outdated. Newer Django versions require  the addition of a namespace to the paths in the urls.py files (both project and app ones). 
+
+You can do this by going into the  project/urls.py  file and adding a "namespace" field inside the include function, for instance
+
+         path( ' ' , include( ' blog.urls ' , namespace = " < insert you namespace here >" ) )
+
+Then, inside the base HTML file, on the  "href", you should basically add inside of the quotes the prefix  ' < the namespace > : ' before the url. More precisely:
+
+         href = {% url  ' < insert the namespace of the url that you want to use here > :  < insert the url here >  '   %}
+
+On the blog/urls.py you can simply add a variable with a string after imports, for instance
+
+         blog_namespace = " < insert the desired name here > "
+
+Hope that it helps.

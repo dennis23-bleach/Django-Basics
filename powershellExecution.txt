@@ -1,0 +1,8 @@
+Set-ExecutionPolicy RemoteSigned
+
+- This command allows the execution of locally created scripts but requires that remotely downloaded scripts are signed by a trusted publisher.
+
+
+Set-ExecutionPolicy Restricted
+
+- This command restores the default policy, which does not allow script execution.
